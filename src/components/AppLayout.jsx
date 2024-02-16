@@ -10,9 +10,6 @@ const AppLayout = () => {
   const { name } = useParams();
   let content;
   switch (name) {
-    case "home":
-      content = <Home />;
-      break;
     case "shop":
       content = <Shop />;
       break;
@@ -29,7 +26,7 @@ const AppLayout = () => {
   return (
     <div className="layout">
       <header>
-        <h1>Fake Shopping Website</h1>
+        <Link to='/home'><h1>FakeShop</h1></Link>
         <ul>
           <li>
             <Link to="/home">Home</Link>

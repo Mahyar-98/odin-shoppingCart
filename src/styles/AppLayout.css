@@ -6,19 +6,48 @@
   justify-content: space-between;
 }
 
+.layout a {
+    color: white;
+}
+
 header {
   display: flex;
   justify-content: space-between;
-  background-color: aliceblue;
+  align-items: center;
+  background-color: black;
+  padding: 1em;
+  color: white;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
 }
 
 header ul {
+  width: 40%;
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
   list-style: none;
+  margin: 0 1rem 0 0;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 footer {
   text-align: center;
-  background-color: aliceblue;
+  background-color: black;
+  color: white;
+  padding: .5em 0;
+}
+
+footer p {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+footer a {
+  margin: 0 0 0 0.5rem;
 }

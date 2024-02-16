@@ -1,17 +1,47 @@
-import '../styles/AppLayout.css'
-import PropTypes from 'prop-types'
-import { Link } from "react-router-dom";
-import { FaGithub } from "react-icons/fa";
+import "../styles/AppLayout.css";
+import { Link, useParams } from "react-router-dom";
+import { FaGithub, FaShoppingCart } from "react-icons/fa";
+import Home from "./Home";
+import Shop from "./Shop";
+import Cart from "./Cart";
+import Thanks from "./Thanks";
 
-const AppLayout = ({ content }) => {
+const AppLayout = () => {
+  const { name } = useParams();
+  let content;
+  switch (name) {
+    case "home":
+      content = <Home />;
+      break;
+    case "shop":
+      content = <Shop />;
+      break;
+    case "cart":
+      content = <Cart />;
+      break;
+    case "thanks":
+      content = <Thanks />;
+      break;
+    default:
+      content = <Home />;
+  }
+
   return (
     <div className="layout">
       <header>
         <h1>Fake Shopping Website</h1>
         <ul>
-          <Link to="home">Home</Link>
-          <Link to="shop">Shop</Link>
-          <Link to="cart">Cart</Link>
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/shop">Shop</Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <FaShoppingCart />
+            </Link>
+          </li>
         </ul>
       </header>
       <main> {content} </main>
@@ -26,9 +56,5 @@ const AppLayout = ({ content }) => {
     </div>
   );
 };
-
-AppLayout.propTypes = {
-    content: PropTypes.node.isRequired
-}
 
 export default AppLayout;

@@ -7,7 +7,7 @@
 }
 
 .layout a {
-    color: white;
+  color: white;
 }
 
 header {
@@ -20,8 +20,8 @@ header {
 }
 
 header h1 {
-    font-size: 2rem;
-    margin: 0;
+  font-size: 2rem;
+  margin: 0;
 }
 
 header ul {
@@ -39,13 +39,13 @@ footer {
   text-align: center;
   background-color: black;
   color: white;
-  padding: .5em 0;
+  padding: 0.5em 0;
 }
 
 footer p {
-    font-weight: 500;
-    font-size: 0.9rem;
-    margin: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 footer a {

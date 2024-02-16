@@ -26,7 +26,9 @@ const AppLayout = () => {
   return (
     <div className="layout">
       <header>
-        <Link to='/home'><h1>FakeShop</h1></Link>
+        <Link to="/home">
+          <h1>FakeShop</h1>
+        </Link>
         <ul>
           <li>
             <Link to="/home">Home</Link>

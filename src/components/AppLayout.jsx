@@ -5,23 +5,50 @@ import Home from "./Home";
 import Shop from "./Shop";
 import Cart from "./Cart";
 import Thanks from "./Thanks";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const AppLayout = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => {
+        const initialProducts = json.map((item) => ({
+          ...item,
+          cart: 0,
+        }));
+        setProducts(initialProducts);
+        setLoading(false);
+        console.log(initialProducts);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
-  const handleProductsChange = (newProducts) => {
-    setProducts(newProducts)
-  }
+  const handleAddToCart = (productId, cartValue) => {
+    setProducts((prevProducts) => {
+      return prevProducts.map((product) => {
+        return product.id === productId
+          ? { ...product, cart: cartValue }
+          : product;
+      });
+    });
+  };
 
   const { name } = useParams();
   let content;
   switch (name) {
     case "shop":
-      content = <Shop products={products} handleProductsChange={handleProductsChange}/>;
+      content = (
+        <Shop
+          products={products}
+          loading={loading}
+          handleAddToCart={handleAddToCart}
+        />
+      );
       break;
     case "cart":
-      content = <Cart products={products}/>;
+      content = <Cart products={products} />;
       break;
     case "thanks":
       content = <Thanks />;

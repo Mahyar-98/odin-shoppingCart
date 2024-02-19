@@ -1,27 +1,15 @@
 import "../styles/Shop.css";
-import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Product from "./Product";
 import LoadingPage from "./LoadingPage";
 
-const Shop = ({ products, handleProductsChange }) => {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => {
-        const initialProducts = json.map(item => ({
-          ...item,
-          cart: 0
-        }))
-        handleProductsChange(initialProducts)
-        setLoading(false);
-      })
-      .catch((err) => console.error(err));
-  }, [ handleProductsChange ]);
-
+const Shop = ({ products, loading, handleAddToCart }) => {
   const productList = products.map((product) => (
-    <Product key={product.id} info={product} />
+    <Product
+      key={product.id}
+      product={product}
+      handleAddToCart={handleAddToCart}
+    />
   ));
 
   return (
@@ -39,7 +27,8 @@ const Shop = ({ products, handleProductsChange }) => {
 };
 
 Shop.propTypes = {
-  handleProductsChange: PropTypes.func.isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
   products: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string.isRequired,
@@ -51,7 +40,7 @@ Shop.propTypes = {
       }).isRequired,
       price: PropTypes.number.isRequired,
       cart: PropTypes.number.isRequired,
-    })
+    }),
   ).isRequired,
 };
 

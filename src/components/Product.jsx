@@ -1,27 +1,43 @@
 import "../styles/Product.css";
 import PropTypes from "prop-types";
 
-const Product = ({ info }) => {
+const Product = ({ product, handleAddToCart }) => {
   return (
     <div className="product">
       <div className="image-container">
-        <img src={info.image} alt={info.description} />
+        <img src={product.image} alt={product.description} />
       </div>
-      <div className="product-info">
+      <div className="product-product">
         <div className="product-title">
-          <p>{info.title}</p>
+          <p>{product.title}</p>
         </div>
         <p>
-          {info.rating.rate} ({info.rating.count})
+          {product.rating.rate} ({product.rating.count})
         </p>
-        <p>${info.price}</p>
+        <p>${product.price}</p>
         <div className="product-buy">
           <div className="count-input">
-            <button className="count-change">-</button>
-            <input type="number" />
-            <button className="count-change">+</button>
+            <button
+              className="count-change"
+              onClick={() => handleAddToCart(product.id, product.cart - 1)}
+            >
+              -
+            </button>
+            <input
+              type="number"
+              value={product.cart}
+              onChange={(e) => handleAddToCart(product.id, e.target.value)}
+            />
+            <button
+              className="count-change"
+              onClick={() => handleAddToCart(product.id, product.cart + 1)}
+            >
+              +
+            </button>
           </div>
-          <button>Add to cart</button>
+          <button onClick={() => handleAddToCart(product.id, product.cart + 1)}>
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
@@ -29,7 +45,8 @@ const Product = ({ info }) => {
 };
 
 Product.propTypes = {
-  info: PropTypes.shape({
+  product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -40,6 +57,7 @@ Product.propTypes = {
     price: PropTypes.number.isRequired,
     cart: PropTypes.number.isRequired,
   }).isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
 };
 
 export default Product;

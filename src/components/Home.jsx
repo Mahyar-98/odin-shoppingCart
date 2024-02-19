@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/Home.css";
 
 const Home = () => {
@@ -9,7 +10,9 @@ const Home = () => {
           Explore our curated selection of premium products, from fashion to
           tech, all in one place.
         </p>
-        <button>Shop Now</button>
+        <Link to="/shop">
+          <button type="button">Shop Now</button>
+        </Link>
       </div>
       <div className="home-content">
         <div className="home-col">

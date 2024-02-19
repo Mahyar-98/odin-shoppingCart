@@ -1,0 +1,19 @@
+.shop-heading {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: 900;
+    -webkit-text-stroke: .5px black; /* For Chrome, Safari, and Opera */
+    text-stroke: 1px black; /* For Firefox */
+}
+
+.shop-items {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 2em;
+}
+

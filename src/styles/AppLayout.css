@@ -2,7 +2,8 @@
   min-height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;}
+  flex-direction: column;
+}
 
 .layout a {
   color: white;
@@ -38,7 +39,7 @@ main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-image: url('../assets/background.jpg');
+  background-image: url("../assets/background.jpg");
   background-size: cover;
 }
 

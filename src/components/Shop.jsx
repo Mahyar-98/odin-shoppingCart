@@ -1,4 +1,4 @@
-import '../styles/Shop.css'
+import "../styles/Shop.css";
 import { useEffect, useState } from "react";
 import Product from "./Product";
 import LoadingPage from "./LoadingPage";
@@ -20,9 +20,18 @@ const Shop = () => {
     <Product key={product.id} info={product} />
   ));
 
-  return <>{loading ? <LoadingPage /> : (<>
-  <h2 className="shop-heading">Our Products</h2>
-  <div className='shop-items'>{productList}</div></>)}</>;
+  return (
+    <>
+      {loading ? (
+        <LoadingPage />
+      ) : (
+        <>
+          <h2 className="shop-heading">Our Products</h2>
+          <div className="shop-items">{productList}</div>
+        </>
+      )}
+    </>
+  );
 };
 
 export default Shop;

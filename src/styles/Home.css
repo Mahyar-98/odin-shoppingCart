@@ -1,0 +1,41 @@
+.home {
+  width: 80%;
+  margin: 2em auto;
+  background-color: white;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  text-align: center;
+  padding: 2em;
+  box-shadow: 0.05em 0.2em 0.2em 0em #7777774f;
+}
+
+.home h2 {
+  margin-top: 0.5em;
+}
+
+.home-content {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1em;
+}
+
+.home-col {
+  flex: 1;
+  padding: 1em;
+  border-radius: 2em;
+  box-shadow: 0.05em 0.2em 0.5em 0em #7777774f;
+}
+
+.home button {
+  width: 80%;
+  width: 10em;
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 900;
+  border-radius: 10em;
+  margin: 0.5em 0;
+}

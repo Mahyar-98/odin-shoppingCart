@@ -38,6 +38,7 @@ Product.propTypes = {
       count: PropTypes.number.isRequired,
     }).isRequired,
     price: PropTypes.number.isRequired,
+    cart: PropTypes.number.isRequired,
   }).isRequired,
 };
 

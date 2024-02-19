@@ -5,16 +5,23 @@ import Home from "./Home";
 import Shop from "./Shop";
 import Cart from "./Cart";
 import Thanks from "./Thanks";
+import { useState } from "react";
 
 const AppLayout = () => {
+  const [products, setProducts] = useState([]);
+
+  const handleProductsChange = (newProducts) => {
+    setProducts(newProducts)
+  }
+
   const { name } = useParams();
   let content;
   switch (name) {
     case "shop":
-      content = <Shop />;
+      content = <Shop products={products} handleProductsChange={handleProductsChange}/>;
       break;
     case "cart":
-      content = <Cart />;
+      content = <Cart products={products}/>;
       break;
     case "thanks":
       content = <Thanks />;

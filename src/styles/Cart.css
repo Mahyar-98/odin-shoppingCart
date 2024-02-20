@@ -1,0 +1,21 @@
+.cart {
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 3em;
+}
+
+.cart h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: 900;
+    -webkit-text-stroke: 0.5px black;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+
+}

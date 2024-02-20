@@ -16,6 +16,7 @@ const AppLayout = () => {
       .then((json) => {
         const initialProducts = json.map((item) => ({
           ...item,
+          price: (item.price).toFixed(2),
           cart: 0,
         }));
         setProducts(initialProducts);

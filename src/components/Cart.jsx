@@ -1,16 +1,15 @@
 import PropTypes from "prop-types";
+import CartItem from './CartItem'
 import "../styles/Cart.css";
 
-const Cart = ({ products }) => {
+const Cart = ({ products, handleAddToCart }) => {
   const itemList = products.map((item) => {
-    return (
-      <div className="cart-item" key={item.id}>
-        {item.title}: {item.cart}
-      </div>
-    );
+    if (item.cart > 0) {
+      return (<CartItem key={item.id} item={item} handleAddToCart={handleAddToCart}/>);
+    }
   });
 
-  return <>{itemList}</>;
+  return <div className="cart"><h2>Cart</h2><div className="cart-items">{itemList}</div></div>;
 };
 
 Cart.propTypes = {
@@ -27,6 +26,7 @@ Cart.propTypes = {
       cart: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
 };
 
 export default Cart;

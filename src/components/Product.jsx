@@ -7,7 +7,7 @@ const Product = ({ product, handleAddToCart }) => {
       <div className="image-container">
         <img src={product.image} alt={product.description} />
       </div>
-      <div className="product-product">
+      <div className="product-info">
         <div className="product-title">
           <p>{product.title}</p>
         </div>
@@ -16,28 +16,40 @@ const Product = ({ product, handleAddToCart }) => {
         </p>
         <p>${product.price}</p>
         <div className="product-buy">
-          <div className="count-input">
-            <button
-              className="count-change"
-              onClick={() => handleAddToCart(product.id, product.cart - 1)}
-            >
-              -
-            </button>
-            <input
-              type="number"
-              value={product.cart}
-              onChange={(e) => handleAddToCart(product.id, e.target.value)}
-            />
-            <button
-              className="count-change"
+          {product.cart === 0 ? (<>
+          <div className="product-buy-item"></div>
+            <button className="add-button product-buy-item"
               onClick={() => handleAddToCart(product.id, product.cart + 1)}
             >
-              +
+              Add to cart
             </button>
-          </div>
-          <button onClick={() => handleAddToCart(product.id, product.cart + 1)}>
-            Add to cart
-          </button>
+            </>
+          ) : (
+            <>
+              <div className="count-input product-buy-item">
+                <button
+                  className="count-change"
+                  onClick={() => handleAddToCart(product.id, product.cart - 1)}
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  value={product.cart}
+                  onChange={(e) => handleAddToCart(product.id, e.target.value)}
+                />
+                <button
+                  className="count-change"
+                  onClick={() => handleAddToCart(product.id, product.cart + 1)}
+                >
+                  +
+                </button>
+              </div>
+              <div className="product-buy-item">
+                <p className="confirm-added">Added ✓</p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

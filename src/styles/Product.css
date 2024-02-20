@@ -1,6 +1,7 @@
 .product {
   flex-basis: 0;
   width: 100%;
+  min-width: 15em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,27 +31,30 @@
 
 .product-info {
   text-align: center;
+  width: 100%;
 }
 
 .product-title {
   font-weight: 600;
+  text-align: start;
 }
 
 .product-buy {
   display: flex;
   justify-content: center;
-  align-items: stretch;
   gap: 1em;
+  width: 100%;
+  min-height: 3.5em;
 }
 
 .count-input {
   border-radius: 8px;
   display: flex;
   justify-content: center;
-  align-items: stretch;
   overflow: hidden;
   max-width: 9em;
   border: #777777a9 solid 0.01em;
+  width: 50%;
 }
 
 button.count-change {
@@ -76,14 +80,19 @@ input[type="number"] {
   font-weight: 700;
 }
 .product-buy > button {
-  width: 80%;
-  width: 10em;
   color: white;
   border: none;
 }
 
-button:hover {
-  background-color: rgba(0, 0, 0, 0.75);
-  border: none;
-  transform: none;
+.product-buy-item {
+  width: 50%;
+}
+
+.add-button {
+  padding: 0.5em;
+}
+
+.confirm-added {
+  font-size: 0.9rem;
+  color: green;
 }

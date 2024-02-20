@@ -26,13 +26,15 @@ const AppLayout = () => {
   }, []);
 
   const handleAddToCart = (productId, cartValue) => {
-    setProducts((prevProducts) => {
-      return prevProducts.map((product) => {
-        return product.id === productId
-          ? { ...product, cart: cartValue }
-          : product;
+    if (/^\d*$/.test(cartValue)) {
+      setProducts((prevProducts) => {
+        return prevProducts.map((product) => {
+          return product.id === productId
+            ? { ...product, cart: cartValue }
+            : product;
+        });
       });
-    });
+    }
   };
 
   const { name } = useParams();
@@ -48,7 +50,7 @@ const AppLayout = () => {
       );
       break;
     case "cart":
-      content = <Cart products={products} />;
+      content = <Cart products={products} handleAddToCart={handleAddToCart} />;
       break;
     case "thanks":
       content = <Thanks />;

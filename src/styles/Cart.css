@@ -31,3 +31,19 @@
   justify-content: space-between;
   gap: 1em;
 }
+
+.cart-total {
+  margin: 2em auto;
+  background-color: white;
+  border-radius: 1em;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 2em;
+  box-shadow: 0.05em 0.2em 0.2em 0em #7777774f;
+  border: #777777a9 solid 0.01em;
+  font-size: 1.2rem;
+}
+
+.cart-total button {
+}

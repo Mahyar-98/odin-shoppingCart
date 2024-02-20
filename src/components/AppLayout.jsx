@@ -38,6 +38,14 @@ const AppLayout = () => {
     }
   };
 
+  const handleCheckout = () => {
+    setProducts((prevProducts) => {
+      return prevProducts.map((product) => {
+        return { ...product, cart: 0 };
+      });
+    });
+  };
+
   const { name } = useParams();
   let content;
   switch (name) {
@@ -51,7 +59,13 @@ const AppLayout = () => {
       );
       break;
     case "cart":
-      content = <Cart products={products} handleAddToCart={handleAddToCart} />;
+      content = (
+        <Cart
+          products={products}
+          handleAddToCart={handleAddToCart}
+          handleCheckout={handleCheckout}
+        />
+      );
       break;
     case "thanks":
       content = <Thanks />;

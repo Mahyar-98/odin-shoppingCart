@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 import "../styles/Cart.css";
 
-const Cart = ({ products, handleAddToCart }) => {
+const Cart = ({ products, handleAddToCart, handleCheckout }) => {
   const itemList = products.map((item) => {
     if (item.cart > 0) {
       return (
@@ -10,6 +11,11 @@ const Cart = ({ products, handleAddToCart }) => {
       );
     }
   });
+
+  const totalPrice = products.reduce(
+    (acc, product) => acc + product.price * product.cart,
+    0,
+  );
 
   return (
     <div className="cart">
@@ -20,7 +26,16 @@ const Cart = ({ products, handleAddToCart }) => {
           <p>Please add items to your cart.</p>
         </div>
       ) : (
-        <div className="cart-items">{itemList}</div>
+        <>
+          <div className="cart-items">{itemList}</div>
+          <div className="cart-total">
+            <strong>Your Totoal:</strong>
+            <strong>${totalPrice.toFixed(2)}</strong>
+            <Link to="/thanks">
+              <button onClick={() => handleCheckout()}>Checkout</button>
+            </Link>
+          </div>
+        </>
       )}
     </div>
   );

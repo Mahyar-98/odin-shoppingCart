@@ -41,10 +41,10 @@ button {
   box-shadow: none;
   font-size: 0.9rem;
   font-weight: 700;
+  color: white;
 }
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.75);
-  border: none;
   transform: none;
 }

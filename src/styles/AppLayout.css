@@ -35,6 +35,21 @@ header ul {
   font-size: 1.1rem;
 }
 
+.cart-icon svg {
+  font-size: 1.6rem;
+}
+
+.cart-num {
+  font-size: 0.8rem;
+  font-weight: 400;
+  background-color: rgb(247, 235, 221);
+  color: black;
+  border-radius: 5em;
+  border: 0.1rem solid black;
+  padding: 0.2em;
+  margin-left: -0.3em;
+}
+
 main {
   flex-grow: 1;
   display: flex;

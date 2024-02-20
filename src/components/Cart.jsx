@@ -1,15 +1,22 @@
 import PropTypes from "prop-types";
-import CartItem from './CartItem'
+import CartItem from "./CartItem";
 import "../styles/Cart.css";
 
 const Cart = ({ products, handleAddToCart }) => {
   const itemList = products.map((item) => {
     if (item.cart > 0) {
-      return (<CartItem key={item.id} item={item} handleAddToCart={handleAddToCart}/>);
+      return (
+        <CartItem key={item.id} item={item} handleAddToCart={handleAddToCart} />
+      );
     }
   });
 
-  return <div className="cart"><h2>Cart</h2><div className="cart-items">{itemList}</div></div>;
+  return (
+    <div className="cart">
+      <h2>Cart</h2>
+      <div className="cart-items">{itemList}</div>
+    </div>
+  );
 };
 
 Cart.propTypes = {

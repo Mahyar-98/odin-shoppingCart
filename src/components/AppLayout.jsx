@@ -16,7 +16,7 @@ const AppLayout = () => {
       .then((json) => {
         const initialProducts = json.map((item) => ({
           ...item,
-          price: (item.price).toFixed(2),
+          price: item.price.toFixed(2),
           cart: 0,
         }));
         setProducts(initialProducts);
@@ -60,6 +60,8 @@ const AppLayout = () => {
       content = <Home />;
   }
 
+  const cartNum = products.reduce((acc, product) => acc + product.cart, 0);
+
   return (
     <div className="layout">
       <header>
@@ -73,10 +75,11 @@ const AppLayout = () => {
           <li>
             <Link to="/shop">Shop</Link>
           </li>
-          <li>
+          <li className="cart-icon">
             <Link to="/cart">
               <FaShoppingCart />
             </Link>
+            <span className="cart-num">{cartNum}</span>
           </li>
         </ul>
       </header>

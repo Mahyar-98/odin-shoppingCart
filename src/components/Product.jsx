@@ -16,13 +16,15 @@ const Product = ({ product, handleAddToCart }) => {
         </p>
         <p>${product.price}</p>
         <div className="product-buy">
-          {product.cart === 0 ? (<>
-          <div className="product-buy-item"></div>
-            <button className="add-button product-buy-item"
-              onClick={() => handleAddToCart(product.id, product.cart + 1)}
-            >
-              Add to cart
-            </button>
+          {product.cart === 0 ? (
+            <>
+              <div className="product-buy-item"></div>
+              <button
+                className="add-button product-buy-item"
+                onClick={() => handleAddToCart(product.id, product.cart + 1)}
+              >
+                Add to cart
+              </button>
             </>
           ) : (
             <>

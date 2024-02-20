@@ -4,12 +4,25 @@
   padding-bottom: 3em;
 }
 
-.cart h2 {
+.cart > h2 {
   text-align: center;
   font-size: 2rem;
   color: white;
   font-weight: 900;
   -webkit-text-stroke: 0.5px black;
+}
+
+.cart-empty {
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  text-align: center;
+  padding: 2em;
+  box-shadow: 0.05em 0.2em 0.2em 0em #7777774f;
 }
 
 .cart-items {

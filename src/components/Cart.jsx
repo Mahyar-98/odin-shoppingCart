@@ -14,7 +14,14 @@ const Cart = ({ products, handleAddToCart }) => {
   return (
     <div className="cart">
       <h2>Cart</h2>
-      <div className="cart-items">{itemList}</div>
+      {itemList.every((item) => item === undefined) ? (
+        <div className="cart-empty">
+          <h2>Your cart is empty!</h2>
+          <p>Please add items to your cart.</p>
+        </div>
+      ) : (
+        <div className="cart-items">{itemList}</div>
+      )}
     </div>
   );
 };

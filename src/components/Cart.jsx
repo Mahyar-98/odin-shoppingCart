@@ -56,6 +56,7 @@ Cart.propTypes = {
     }),
   ).isRequired,
   handleAddToCart: PropTypes.func.isRequired,
+  handleCheckout: PropTypes.func.isRequired,
 };
 
 export default Cart;

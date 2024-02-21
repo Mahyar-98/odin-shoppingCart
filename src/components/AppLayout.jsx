@@ -1,31 +1,33 @@
 import "../styles/AppLayout.css";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaGithub, FaShoppingCart } from "react-icons/fa";
 import Home from "./Home";
 import Shop from "./Shop";
 import Cart from "./Cart";
 import Thanks from "./Thanks";
-import { useState, useEffect } from "react";
 
 const AppLayout = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Fetch the data for the products from a fake store API
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
         const initialProducts = json.map((item) => ({
           ...item,
-          price: item.price.toFixed(2),
+          price: item.price,
           cart: 0,
         }));
         setProducts(initialProducts);
         setLoading(false);
-        console.log(initialProducts);
       })
       .catch((err) => console.error(err));
   }, []);
 
+  // Manages all the changes to the cart value of each product
   const handleAddToCart = (productId, cartValue) => {
     if (/^\d*$/.test(cartValue)) {
       setProducts((prevProducts) => {
@@ -38,6 +40,7 @@ const AppLayout = () => {
     }
   };
 
+  // Resets the cart value of all products to zero after clicking on checkout
   const handleCheckout = () => {
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
@@ -46,6 +49,10 @@ const AppLayout = () => {
     });
   };
 
+  // The total number of items in the cart to be shown next to the cart icon on the header
+  const cartNum = products.reduce((acc, product) => acc + product.cart, 0);
+
+  // Takes the name parameter from the url and choose the related content accordingly
   const { name } = useParams();
   let content;
   switch (name) {
@@ -55,6 +62,7 @@ const AppLayout = () => {
           products={products}
           loading={loading}
           handleAddToCart={handleAddToCart}
+          handleCheckout={handleCheckout}
         />
       );
       break;
@@ -74,8 +82,6 @@ const AppLayout = () => {
       content = <Home />;
   }
 
-  const cartNum = products.reduce((acc, product) => acc + product.cart, 0);
-
   return (
     <div className="layout">
       <header>
@@ -93,7 +99,7 @@ const AppLayout = () => {
             <Link to="/cart">
               <FaShoppingCart />
             </Link>
-            <span className="cart-num">{cartNum}</span>
+            {cartNum === 0 ? null : <span className="cart-num">{cartNum}</span>}
           </li>
         </ul>
       </header>
@@ -101,7 +107,11 @@ const AppLayout = () => {
       <footer>
         <p>
           Check out my GitHub:{" "}
-          <a href="https://github.com/Mahyar-98">
+          <a
+            href="https://github.com/Mahyar-98"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaGithub />
           </a>
         </p>

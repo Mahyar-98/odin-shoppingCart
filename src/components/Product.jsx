@@ -14,7 +14,7 @@ const Product = ({ product, handleAddToCart }) => {
         <p>
           {product.rating.rate} ({product.rating.count})
         </p>
-        <p>${product.price}</p>
+        <p>${product.price.toFixed(2)}</p>
         <div className="product-buy">
           {product.cart === 0 ? (
             <>
@@ -38,7 +38,9 @@ const Product = ({ product, handleAddToCart }) => {
                 <input
                   type="number"
                   value={product.cart}
-                  onChange={(e) => handleAddToCart(product.id, e.target.value)}
+                  onChange={(e) =>
+                    handleAddToCart(product.id, parseInt(e.target.value))
+                  }
                 />
                 <button
                   className="count-change"

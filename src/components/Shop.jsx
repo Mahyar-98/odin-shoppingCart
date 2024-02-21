@@ -1,7 +1,7 @@
 import "../styles/Shop.css";
-import PropTypes from "prop-types";
 import Product from "./Product";
 import LoadingPage from "./LoadingPage";
+import PropTypes from "prop-types";
 
 const Shop = ({ products, loading, handleAddToCart }) => {
   const productList = products.map((product) => (
@@ -12,16 +12,12 @@ const Shop = ({ products, loading, handleAddToCart }) => {
     />
   ));
 
-  return (
+  return loading ? (
+    <LoadingPage />
+  ) : (
     <>
-      {loading ? (
-        <LoadingPage />
-      ) : (
-        <>
-          <h2 className="shop-heading">Our Products</h2>
-          <div className="shop-items">{productList}</div>
-        </>
-      )}
+      <h2 className="shop-heading">Our Products</h2>
+      <div className="shop-items">{productList}</div>
     </>
   );
 };

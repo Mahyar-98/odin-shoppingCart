@@ -46,8 +46,10 @@ header ul {
   color: black;
   border-radius: 5em;
   border: 0.1rem solid black;
-  padding: 0.2em;
+  padding: 0.3em;
   margin-left: -0.3em;
+  margin-top: 0.8em;
+  position: absolute;
 }
 
 main {

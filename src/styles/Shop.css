@@ -15,3 +15,21 @@
   gap: 1em;
   padding: 2em;
 }
+
+.sidecart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 25vw;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 0 0 50em 70em rgba(0, 0, 0, 0.801);
+  transition: 1s;
+}
+
+.sidecart-open button:hover,
+.sidecart-open .product:hover img {
+  pointer-events: none;
+  cursor: default;
+  transform: none;
+}

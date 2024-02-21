@@ -48,7 +48,6 @@
 }
 
 .cart-item-btns button {
-  color: white;
   border-radius: 0;
 }
 
@@ -62,6 +61,7 @@
 
 .item-trash {
   background-color: white;
+  color: black;
   border: none;
   padding: 0;
   margin-left: 2em;

@@ -30,13 +30,21 @@
 }
 
 .product-info {
-  text-align: center;
   width: 100%;
 }
 
 .product-title {
   font-weight: 600;
-  text-align: start;
+}
+
+.fa-star,
+.fa-star-half-o,
+.fa-star-o {
+  color: rgb(233, 182, 54);
+}
+
+.product-price b {
+  font-weight: 600;
 }
 
 .product-buy {

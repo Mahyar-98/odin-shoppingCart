@@ -4,4 +4,4 @@ This project is a React-based single-page application (SPA) designed to provide 
 
 With React Router at its core, React + Vite enables seamless navigation between different views within the application, allowing users to explore various sections without the need for page refreshes. Whether you're browsing through product listings, managing your shopping cart, or checking out, our SPA ensures a fluid and intuitive user experience from start to finish.
 
-The data for the products was used from the [Fake Store API] (https://fakestoreapi.com/)
+The data for the products was used from the [Fake Store API](https://fakestoreapi.com/)

@@ -1,8 +1,7 @@
-# React + Vite
+# Online Shop 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React-based single-page application (SPA) designed to provide a smooth and responsive shopping experience. Leveraging the power of React and Vite, a next-generation frontend build tool, our application offers lightning-fast performance and a modern development environment.
 
-Currently, two official plugins are available:
+With React Router at its core, React + Vite enables seamless navigation between different views within the application, allowing users to explore various sections without the need for page refreshes. Whether you're browsing through product listings, managing your shopping cart, or checking out, our SPA ensures a fluid and intuitive user experience from start to finish.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The data for the products was used from the [Fake Store API] (https://fakestoreapi.com/)

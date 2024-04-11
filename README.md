@@ -1,4 +1,4 @@
-# Online Shop 
+# Online Shop
 
 This project is a React-based single-page application (SPA) designed to provide a smooth and responsive shopping experience. Leveraging the power of React and Vite, a next-generation frontend build tool, our application offers lightning-fast performance and a modern development environment.
 

@@ -10,16 +10,21 @@
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: black;
   padding: 1em;
   color: white;
 }
 
+header > div {
+  margin: 0 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
+}
+
 header h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin: 0;
   width: 100%;
 }
@@ -35,10 +40,6 @@ header ul {
   font-size: 1.1rem;
 }
 
-.cart-icon svg {
-  font-size: 1.6rem;
-}
-
 .cart-num {
   font-size: 0.8rem;
   font-weight: 400;
@@ -52,12 +53,107 @@ header ul {
   position: absolute;
 }
 
+header #nav-toggle {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+}
+
+header #nav-toggle .line {
+  display: block;
+  background-color: white;
+  width: 1.3rem;
+  height: 0.15rem;
+  margin: 0.2rem 0;
+}
+
+header .nav {
+  display: none;
+}
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 250px;
+  height: 100%;
+  padding: 0 1em;
+  background-color: black;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+.side-nav.show {
+  left: 0;
+}
+
+.side-nav h2 {
+  color: white;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 998;
+}
+
+.side-nav nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-nav h2 {
+  margin: 1em 0 2em 1em;
+  font-size: 1.5rem;
+}
+
+.side-nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1em;
+  padding-left: 0;
+}
+
+.side-nav a {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.5em 0 0.5em 1em;
+  border-radius: 0.6em;
+}
+
+.side-nav svg {
+  width: 1em;
+  fill: white;
+}
+
+.side-nav p {
+  margin: 0;
+}
+
+.side-cart-num {
+  font-size: 0.9rem;
+  font-weight: normal;
+  background-color: white;
+  color: black;
+  border-radius: 5em;
+  padding: 0.3em;
+  width: 2em;
+  text-align: center;
+}
+
 main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-image: url("../assets/background.jpg");
-  background-size: cover;
+  background-color: rgba(0, 41, 75, 0.699);
 }
 
 footer {
@@ -75,4 +171,30 @@ footer p {
 
 footer a {
   margin: 0 0 0 0.5rem;
+}
+
+@media (min-width: 600px) {
+  header > div {
+    margin: 0 2em;
+  }
+
+  header #nav-toggle {
+    display: none;
+  }
+
+  header .nav {
+    display: flex;
+  }
+
+  header nav ul {
+    display: flex;
+    gap: 3.5em;
+    padding-left: 0;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  header svg {
+    font-size: 1.6rem;
+  }
 }

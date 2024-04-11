@@ -1,6 +1,6 @@
 .home {
   width: 80%;
-  margin: 2em auto;
+  margin: 8em auto;
   background-color: white;
   border-radius: 1em;
   display: flex;
@@ -16,7 +16,7 @@
 }
 
 .home-content {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: stretch;
   gap: 1em;
@@ -38,4 +38,14 @@
   font-weight: 900;
   border-radius: 10em;
   margin: 0.5em 0;
+}
+
+@media (min-width: 750px) {
+  .home {
+    margin: 4em auto;
+  }
+
+  .home-content {
+    display: flex;
+  }
 }
